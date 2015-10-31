@@ -464,3 +464,37 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+int kern_mprotect(void *addr, int len){
+  if (len <= 0) {
+    return -1; 
+  }
+  if (addr % PGSIZE != 0) {
+    return -1;
+  }
+  if (addr > proc->sz) {
+    return -1; 
+  }
+  if (addr <= 0) {
+    return -1
+  }
+  
+  return 0; 
+
+}
+
+int kern_munprotect(struct proc* process, void* addr, int len) {
+  if (len <= 0) {
+    return -1; 
+  }
+  if (addr % PGSIZE != 0) {
+    return -1;
+  }
+  if (addr > proc->sz) {
+    return -1; 
+  }
+  if (addr <= 0) {
+    return -1;
+  }
+  return 0; 
+}
