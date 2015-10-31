@@ -184,3 +184,6 @@ void            clearpteu(pde_t *pgdir, char *uva);
 
 int do_mprotect(struct proc*, void *addr);
 int do_munprotect(struct proc*, void *addr); 
+
+int kern_mprotect(struct proc*, void *addr, int); 
+int kern_munprotect(struct proc*, void *addr, int); 
